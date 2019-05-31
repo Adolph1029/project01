@@ -1,8 +1,7 @@
 package com.cn.ch;
 
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.Scanner;
 
 /**
  * Demo Class
@@ -15,38 +14,31 @@ public class Test {
 
 
     public static void main(String[] args) {
-        //我不知道改写什么注释
-        ArrayList list1 = new ArrayList();
+        int i = 0;
+        for ( i = 0; i < 5 ; i++) {
+            Scanner sc = new Scanner(System.in);
+            int year = sc.nextInt();
+            int month = sc.nextInt();
+            int day = sc.nextInt();
+            int count = 0;
+            String nf = null;
 
-        list1.add(0,"123");
-        list1.add(1,"456");
-        //for循环简写模板：fori;
-        String[] arr = new String[]{"tom","lilei","marry","jack","jane"};
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println("普通for循环"+arr[i]);
+            int[] arr1 = {31,60,91,121,152,182,213,244,274,305,335,366};
+            if(month == 1) {
+                count = day;
+            }
+            boolean bl = (year % 4 ==0 && year % 100 !=0) || year % 400 == 0;
+            if (bl) {
+                if (month >1 && month <13) {
+                    count = arr1[month - 2] + day;
+                    nf = "今年是闰年";
+                }
+            }else {
+                count = arr1[month - 2] + day - 1;
+                nf = "今年不是闰年";
+            }
+            System.out.println("是本年的第"+ count + "天,"+nf);
         }
-        for (String s : arr) {
-            System.out.println("增强for循环"+s);
-        }
-        for (int i = 0; i < arr.length; i++) {
-            String s = arr[i];
-            System.out.println("另一种的循环"+s);
-        }
 
-    }
-
-
-
-    public void mether(){
-        Date d1 = new Date();
-        Throwable throwable1 = new Throwable();
-        mether();
-    }
-
-    public int mether1(){
-        ArrayList<Integer> list1= new ArrayList<Integer>();
-
-        mether();
-        return 1;
     }
 }
