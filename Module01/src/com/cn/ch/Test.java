@@ -14,8 +14,9 @@ public class Test {
 
 
     public static void main(String[] args) {
-        int i = 0;
-        for ( i = 0; i < 5 ; i++) {
+        int i ;
+        int b = 5;
+        for ( i = 0; i < b ; i++) {
             Scanner sc = new Scanner(System.in);
             int year = sc.nextInt();
             int month = sc.nextInt();
